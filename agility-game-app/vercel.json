@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/app/agility-game", "destination": "/" },
+    { "source": "/app/agility-game/(.*)", "destination": "/$1" }
+  ],
+  "redirects": [
+    { "source": "/", "destination": "/app/agility-game", "statusCode": 302 }
+  ]
+}

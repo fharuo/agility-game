@@ -1,0 +1,46 @@
+@font-face {
+  font-family: 'ABCFavoritMono';
+  src: url('./assets/fonts/ABCFavoritMono-Book-Trial.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABCFavoritMono';
+  src: url('./assets/fonts/ABCFavoritMono-Medium-Trial.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABCFavoritMono';
+  src: url('./assets/fonts/ABCFavoritMono-Bold-Trial.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ABCFavoritMono';
+  src: url('./assets/fonts/ABCFavoritMono-BoldItalic-Trial.woff2') format('woff2');
+  font-weight: 700;
+  font-style: italic;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: 'ABCFavoritMono', 'Courier New', monospace;
+  background: #1a1a1a;
+  color: #ffffff;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
