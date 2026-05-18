@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react';
 import CornerDecos from './CornerDecos';
 import { exportCSV } from '../utils/leads';
+import nucleaLogo from '../assets/logo-nuclea.png';
 
 const LOGO_CLICKS_REQUIRED = 5;
 const ADMIN_PASSWORD = 'admin123';
@@ -46,8 +47,8 @@ export default function StartScreen({ onStart }) {
       <CornerDecos />
 
       {/* Logo — clickable for admin access */}
-      <div style={{ zIndex:1, cursor:'default', userSelect:'none' }} onClick={handleLogoClick}>
-        <span className="nuclea-logo">NÚCLEA</span>
+      <div style={{ zIndex:1, width:'100%', display:'flex', justifyContent:'center', cursor:'default', userSelect:'none', marginTop:'clamp(24px,8%,60px)' }} onClick={handleLogoClick}>
+        <img src={nucleaLogo} alt="Núclea" style={{ width:'clamp(180px,55%,300px)', height:'auto' }} />
       </div>
 
       {/* Main title */}
@@ -55,7 +56,7 @@ export default function StartScreen({ onStart }) {
         <h1
           className="glitch"
           style={{
-            fontSize: 'clamp(3rem, 14vw, 6rem)',
+            fontSize: 'clamp(2rem, min(9vw, 9dvh), 5rem)',
             lineHeight: 1,
             letterSpacing: '0.04em',
           }}

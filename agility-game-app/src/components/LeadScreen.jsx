@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import CornerDecos from './CornerDecos';
+import nucleaLogo from '../assets/logo-nuclea.png';
 
 export default function LeadScreen({ onSubmit }) {
   const [nome, setNome]           = useState('');
@@ -28,8 +29,8 @@ export default function LeadScreen({ onSubmit }) {
       <CornerDecos />
 
       {/* Logo */}
-      <div style={{ zIndex:1 }}>
-        <span className="nuclea-logo">NÚCLEA</span>
+      <div style={{ zIndex:1, width:'100%', display:'flex', justifyContent:'center' }}>
+        <img src={nucleaLogo} alt="Núclea" style={{ width:'clamp(120px,35%,200px)', height:'auto' }} />
       </div>
 
       {/* Form */}

@@ -1,4 +1,5 @@
 import CornerDecos from './CornerDecos';
+import nucleaLogo from '../assets/logo-nuclea.png';
 
 export default function ThankYouScreen({ onRestart }) {
   return (
@@ -17,7 +18,7 @@ export default function ThankYouScreen({ onRestart }) {
 
       {/* Logo */}
       <div style={{ zIndex:1 }}>
-        <span className="nuclea-logo">NÚCLEA</span>
+        <img src={nucleaLogo} alt="Núclea" style={{ width:'clamp(120px,35%,200px)', height:'auto', display:'block', margin:'0 auto' }} />
       </div>
 
       {/* Main message */}
@@ -25,7 +26,7 @@ export default function ThankYouScreen({ onRestart }) {
         <h1
           className="glitch"
           style={{
-            fontSize: 'clamp(2.4rem,11vw,5rem)',
+            fontSize: 'clamp(1.8rem, min(7vw, 4dvh), 3.5rem)',
             lineHeight: 1.05,
             letterSpacing: '0.04em',
           }}

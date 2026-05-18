@@ -25,7 +25,7 @@ export function exportCSV() {
   const leads = getLeads();
   if (!leads.length) return;
 
-  const headers = ['Nome', 'Email', 'Telefone', 'Conhecia a Nuclea', 'Score (ms)', 'Data'];
+  const headers = ['Nome', 'Email', 'Telefone', 'Conhecia a Nuclea', 'Score total (ms)', 'Data'];
   const rows = leads.map(l => [
     l.nome   ?? '',
     l.email  ?? '',

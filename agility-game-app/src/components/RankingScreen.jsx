@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import CornerDecos from './CornerDecos';
 import { getTopRanking } from '../utils/leads';
+import nucleaLogo from '../assets/logo-nuclea.png';
 
 function formatScore(ms) {
   if (!ms && ms !== 0) return '—';
@@ -38,7 +39,7 @@ export default function RankingScreen({ currentName, onContinue }) {
       <h1
         className="glitch"
         style={{
-          fontSize: 'clamp(3.5rem,16vw,7rem)',
+          fontSize: 'clamp(2.5rem, min(10vw, 6dvh), 5rem)',
           lineHeight: 1,
           letterSpacing: '0.04em',
           textAlign: 'center',
@@ -90,7 +91,7 @@ export default function RankingScreen({ currentName, onContinue }) {
 
       {/* Logo + continue */}
       <div style={{ zIndex:1, display:'flex', flexDirection:'column', alignItems:'center', gap:'24px', width:'100%' }}>
-        <span className="nuclea-logo">NÚCLEA</span>
+        <img src={nucleaLogo} alt="Núclea" style={{ width:'clamp(120px,35%,200px)', height:'auto', display:'block', margin:'0 auto' }} />
         <button className="btn-submit" onClick={onContinue} style={{ maxWidth:'280px' }}>
           Continuar
         </button>
