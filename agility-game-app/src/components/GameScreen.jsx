@@ -152,7 +152,7 @@ export default function GameScreen({ onFinish }) {
               aria-label={btn.label}
             />
             <span style={{
-              fontSize: '1.8cqw',
+              fontSize: '2.8cqw',
               color: 'rgba(255,255,255,0.75)',
               textAlign: 'center', lineHeight: 1.2,
               whiteSpace: 'pre-line',
