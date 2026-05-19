@@ -9,7 +9,7 @@ const ADMIN_PASSWORD = 'admin123';
 export default function StartScreen({ onStart }) {
   const [logoClicks, setLogoClicks]       = useState(0);
   const [showAdmin, setShowAdmin]         = useState(false);
-  const [adminStep, setAdminStep]         = useState('password'); // 'password' | 'panel'
+  const [adminStep, setAdminStep]         = useState('password');
   const [passwordInput, setPasswordInput] = useState('');
   const [passwordError, setPasswordError] = useState(false);
   const clickTimerRef = useRef(null);
@@ -17,11 +17,8 @@ export default function StartScreen({ onStart }) {
   function handleLogoClick() {
     const next = logoClicks + 1;
     setLogoClicks(next);
-
-    // Reset click counter after 2s of inactivity
     clearTimeout(clickTimerRef.current);
     clickTimerRef.current = setTimeout(() => setLogoClicks(0), 2000);
-
     if (next >= LOGO_CLICKS_REQUIRED) {
       setLogoClicks(0);
       setAdminStep('password');
@@ -43,34 +40,33 @@ export default function StartScreen({ onStart }) {
   }
 
   return (
-    <div style={{ position:'relative', width:'100%', height:'100%', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-between', padding:'clamp(40px,8%,80px) clamp(24px,6%,60px)' }}>
+    <div style={{
+      position: 'relative', width: '100%', height: '100%',
+      display: 'flex', flexDirection: 'column',
+      alignItems: 'center', justifyContent: 'space-between',
+      padding: '8cqw 7cqw',
+    }}>
       <CornerDecos />
 
-      {/* Logo — clickable for admin access */}
-      <div style={{ zIndex:1, width:'100%', display:'flex', justifyContent:'center', cursor:'default', userSelect:'none', marginTop:'clamp(24px,8%,60px)' }} onClick={handleLogoClick}>
-        <img src={nucleaLogo} alt="Núclea" style={{ width:'clamp(180px,55%,300px)', height:'auto' }} />
+      {/* Logo — 5 clicks triggers admin */}
+      <div
+        style={{ zIndex: 1, width: '100%', display: 'flex', justifyContent: 'center', cursor: 'default', userSelect: 'none', marginTop: '6cqw' }}
+        onClick={handleLogoClick}
+      >
+        <img src={nucleaLogo} alt="Núclea" style={{ width: '52cqw', height: 'auto' }} />
       </div>
 
       {/* Main title */}
-      <div style={{ zIndex:1, textAlign:'center' }}>
-        <h1
-          className="glitch"
-          style={{
-            fontSize: 'clamp(2rem, min(9vw, 9dvh), 5rem)',
-            lineHeight: 1,
-            letterSpacing: '0.04em',
-          }}
-        >
+      <div style={{ zIndex: 1, textAlign: 'center' }}>
+        <h1 className="glitch" style={{ fontSize: '13cqw', lineHeight: 1, letterSpacing: '0.04em' }}>
           JOGO DA<br />AGILIDADE
         </h1>
       </div>
 
       {/* START button */}
-      <div style={{ zIndex:1, width:'100%', maxWidth:'320px' }}>
-        <button className="btn-layered" style={{ width:'100%' }} onClick={onStart}>
-          <div className="btn-layered-inner" style={{ fontSize:'clamp(1rem,4.5vw,1.5rem)' }}>
-            START
-          </div>
+      <div style={{ zIndex: 1, width: '100%' }}>
+        <button className="btn-layered" onClick={onStart}>
+          <div className="btn-layered-inner">START</div>
         </button>
       </div>
 
@@ -82,7 +78,7 @@ export default function StartScreen({ onStart }) {
           {adminStep === 'password' ? (
             <>
               <p className="admin-title">ACESSO RESTRITO</p>
-              <form onSubmit={handlePasswordSubmit} style={{ display:'flex', flexDirection:'column', gap:'14px', width:'100%', maxWidth:'280px' }}>
+              <form onSubmit={handlePasswordSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '4cqw', width: '100%' }}>
                 <div className="field-group">
                   <label className="field-label">Senha:</label>
                   <input
@@ -94,7 +90,7 @@ export default function StartScreen({ onStart }) {
                     onChange={e => { setPasswordInput(e.target.value); setPasswordError(false); }}
                   />
                   {passwordError && (
-                    <span style={{ color:'#ff5555', fontSize:'0.8rem', fontStyle:'italic' }}>Senha incorreta</span>
+                    <span style={{ color: '#ff5555', fontSize: '2.5cqw', fontStyle: 'italic' }}>Senha incorreta</span>
                   )}
                 </div>
                 <button type="submit" className="btn-submit">Entrar</button>
@@ -103,14 +99,10 @@ export default function StartScreen({ onStart }) {
           ) : (
             <>
               <p className="admin-title">PAINEL ADMIN</p>
-              <p style={{ color:'rgba(255,255,255,0.6)', fontSize:'0.9rem', textAlign:'center' }}>
+              <p style={{ color: 'rgba(255,255,255,0.6)', fontSize: '2.8cqw', textAlign: 'center' }}>
                 Exporte todos os leads coletados em CSV
               </p>
-              <button
-                className="btn-submit"
-                style={{ maxWidth:'260px' }}
-                onClick={() => { exportCSV(); }}
-              >
+              <button className="btn-submit" onClick={exportCSV}>
                 ↓ Exportar CSV
               </button>
             </>

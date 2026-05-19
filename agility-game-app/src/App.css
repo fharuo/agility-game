@@ -2,13 +2,11 @@
    BRAND COLORS
    ============================================= */
 :root {
-  --bg:        #1e1e1e;
-  --bg-light:  #272727;
-  --lime:      #c6f135;
-  --cyan:      #00e5b0;
-  --purple:    #b47aff;
-  --white:     #ffffff;
-  --gray:      rgba(255,255,255,0.5);
+  --bg:     #1e1e1e;
+  --lime:   #c6f135;
+  --cyan:   #00e5b0;
+  --purple: #b47aff;
+  --white:  #ffffff;
 }
 
 /* =============================================
@@ -24,6 +22,7 @@
   overflow: hidden;
 }
 
+/* container-type enables cqw units inside — relative to canvas width */
 .app-canvas {
   position: relative;
   width: min(100vw, calc(100dvh * 9 / 16));
@@ -32,19 +31,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-}
-
-/* =============================================
-   CORNER DECORATIONS
-   ============================================= */
-.corner-deco {
-  position: absolute;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.corner-deco svg {
-  display: block;
+  container-type: inline-size;
 }
 
 /* =============================================
@@ -55,26 +42,13 @@
   font-style: italic;
   color: var(--white);
   text-shadow:
-    -3px -2px 0 var(--lime),
-     3px  2px 0 var(--purple);
+    -4px -3px 0 var(--lime),
+     4px  3px 0 var(--purple);
   letter-spacing: 0.03em;
 }
 
 /* =============================================
-   NUCLEA LOGO
-   ============================================= */
-.nuclea-logo {
-  font-family: 'ABCFavoritMono', monospace;
-  font-weight: 500;
-  font-style: normal;
-  font-size: clamp(1.2rem, 5vw, 2rem);
-  letter-spacing: 0.25em;
-  color: var(--white);
-  text-transform: uppercase;
-}
-
-/* =============================================
-   LAYERED BORDER BUTTON
+   LAYERED BORDER BUTTON (START)
    ============================================= */
 .btn-layered {
   position: relative;
@@ -88,6 +62,7 @@
   border: none;
   cursor: pointer;
   padding: 0;
+  width: 100%;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
 }
@@ -96,17 +71,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 18px 48px;
-  border-radius: 12px;
+  padding: 4.5cqw 10cqw;
+  border-radius: 3cqw;
   border: 2px solid var(--white);
+  font-size: 5cqw;
   box-shadow:
-    3px 3px 0 var(--lime),
-    5px 5px 0 var(--purple);
+    4px 4px 0 var(--lime),
+    7px 7px 0 var(--purple);
   transition: transform 0.12s, box-shadow 0.12s;
 }
 
 .btn-layered:active .btn-layered-inner {
-  transform: translate(3px, 3px);
+  transform: translate(4px, 4px);
   box-shadow: none;
 }
 
@@ -116,7 +92,7 @@
 .field-group {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 1.5cqw;
   width: 100%;
 }
 
@@ -124,7 +100,7 @@
   font-family: 'ABCFavoritMono', monospace;
   font-weight: 700;
   font-style: italic;
-  font-size: clamp(0.75rem, 3.2vw, 1rem);
+  font-size: 2.8cqw;
   color: var(--white);
   letter-spacing: 0.02em;
 }
@@ -133,11 +109,11 @@
   width: 100%;
   background: transparent;
   border: 2px solid var(--lime);
-  border-radius: 6px;
-  padding: 14px 16px;
+  border-radius: 1.5cqw;
+  padding: 3.5cqw 4cqw;
   color: var(--white);
   font-family: 'ABCFavoritMono', monospace;
-  font-size: clamp(0.8rem, 3vw, 1rem);
+  font-size: 2.8cqw;
   outline: none;
   transition: border-color 0.2s;
 }
@@ -151,11 +127,11 @@
 }
 
 /* =============================================
-   YES / NO TOGGLE BUTTONS
+   YES / NO BUTTONS
    ============================================= */
 .yesno-group {
   display: flex;
-  gap: 16px;
+  gap: 3cqw;
 }
 
 .btn-yesno {
@@ -164,15 +140,15 @@
   font-family: 'ABCFavoritMono', monospace;
   font-weight: 700;
   font-style: italic;
-  font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+  font-size: 3.5cqw;
   letter-spacing: 0.1em;
   border: 2px solid var(--white);
-  border-radius: 8px;
-  padding: 12px 28px;
+  border-radius: 2cqw;
+  padding: 3cqw 8cqw;
   cursor: pointer;
   box-shadow:
-    2px 2px 0 var(--lime),
-    4px 4px 0 var(--purple);
+    3px 3px 0 var(--lime),
+    5px 5px 0 var(--purple);
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   transition: transform 0.1s, box-shadow 0.1s;
@@ -186,7 +162,7 @@
 }
 
 .btn-yesno:active {
-  transform: translate(2px, 2px);
+  transform: translate(3px, 3px);
   box-shadow: none;
 }
 
@@ -200,12 +176,12 @@
   font-family: 'ABCFavoritMono', monospace;
   font-weight: 700;
   font-style: italic;
-  font-size: clamp(0.95rem, 4vw, 1.3rem);
+  font-size: 4cqw;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border: none;
-  border-radius: 10px;
-  padding: 18px;
+  border-radius: 2.5cqw;
+  padding: 4.5cqw;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
@@ -227,21 +203,13 @@
 .ranking-box {
   width: 100%;
   border: 2px solid var(--white);
-  border-radius: 12px;
-  padding: 18px 24px;
-  text-align: center;
+  border-radius: 3cqw;
+  padding: 3.5cqw 5cqw;
   font-family: 'ABCFavoritMono', monospace;
   font-weight: 700;
   font-style: italic;
-  font-size: clamp(0.9rem, 3.8vw, 1.2rem);
-  letter-spacing: 0.08em;
-  box-shadow:
-    3px 3px 0 var(--lime),
-    5px 5px 0 var(--purple);
-}
-
-.ranking-box.rank-1 {
-  border-color: var(--lime);
+  font-size: 3cqw;
+  letter-spacing: 0.06em;
   box-shadow:
     3px 3px 0 var(--lime),
     5px 5px 0 var(--purple);
@@ -261,6 +229,8 @@
   -webkit-tap-highlight-color: transparent;
   touch-action: manipulation;
   flex-shrink: 0;
+  width: 14cqw;
+  height: 14cqw;
 }
 
 .circle-btn.inactive {
@@ -272,7 +242,6 @@
 .circle-btn.active {
   opacity: 1;
   transform: scale(1.08);
-  box-shadow: 0 0 0 6px rgba(255,255,255,0.25), 0 0 24px rgba(255,255,255,0.3);
   animation: pulse 0.6s ease infinite alternate;
 }
 
@@ -282,7 +251,7 @@
 
 @keyframes pulse {
   from { box-shadow: 0 0 0 4px rgba(255,255,255,0.2), 0 0 18px rgba(255,255,255,0.2); }
-  to   { box-shadow: 0 0 0 8px rgba(255,255,255,0.35), 0 0 32px rgba(255,255,255,0.4); }
+  to   { box-shadow: 0 0 0 10px rgba(255,255,255,0.35), 0 0 36px rgba(255,255,255,0.4); }
 }
 
 .circle-purple { background: var(--purple); }
@@ -290,21 +259,20 @@
 .circle-cyan   { background: var(--cyan);   }
 
 /* =============================================
-   TIMER DISPLAY
+   TIMER / PROGRESS BOX
    ============================================= */
 .timer-box {
   border: 2px solid var(--white);
-  border-radius: 12px;
-  padding: 10px 28px;
+  border-radius: 3cqw;
+  padding: 2cqw 7cqw;
   font-family: 'ABCFavoritMono', monospace;
   font-weight: 700;
-  font-size: clamp(1.5rem, 6vw, 2.2rem);
+  font-size: 6cqw;
   letter-spacing: 0.1em;
   color: var(--white);
   box-shadow:
-    2px 2px 0 var(--lime),
-    4px 4px 0 var(--purple);
-  min-width: 100px;
+    3px 3px 0 var(--lime),
+    5px 5px 0 var(--purple);
   text-align: center;
 }
 
@@ -314,32 +282,32 @@
 .admin-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,0.88);
+  background: rgba(0,0,0,0.9);
   z-index: 100;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 20px;
-  padding: 40px;
+  gap: 4cqw;
+  padding: 8cqw;
 }
 
 .admin-title {
   font-weight: 700;
   font-style: italic;
-  font-size: clamp(1rem, 4vw, 1.4rem);
+  font-size: 4cqw;
   color: var(--lime);
   letter-spacing: 0.1em;
 }
 
 .admin-close {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 5cqw;
+  right: 5cqw;
   background: transparent;
   border: none;
   color: var(--white);
-  font-size: 1.6rem;
+  font-size: 5cqw;
   cursor: pointer;
   line-height: 1;
 }
