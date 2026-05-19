@@ -10,8 +10,9 @@ import './App.css';
 const SCREENS = { START: 'start', LEAD: 'lead', GAME: 'game', RANKING: 'ranking', THANKS: 'thanks' };
 
 export default function App() {
-  const [screen, setScreen]     = useState(SCREENS.START);
-  const [leadData, setLeadData] = useState(null);
+  const [screen, setScreen]       = useState(SCREENS.START);
+  const [leadData, setLeadData]   = useState(null);
+  const [finalScore, setFinalScore] = useState(null);
 
   const handleStart = useCallback(() => setScreen(SCREENS.LEAD), []);
 
@@ -24,6 +25,7 @@ export default function App() {
     if (leadData) {
       saveLead({ ...leadData, score: scoreMs, hits });
     }
+    setFinalScore(scoreMs);
     setScreen(SCREENS.RANKING);
   }, [leadData]);
 
@@ -31,6 +33,7 @@ export default function App() {
 
   const handleRestart = useCallback(() => {
     setLeadData(null);
+    setFinalScore(null);
     setScreen(SCREENS.START);
   }, []);
 
@@ -40,7 +43,7 @@ export default function App() {
         {screen === SCREENS.START   && <StartScreen   onStart={handleStart} />}
         {screen === SCREENS.LEAD    && <LeadScreen    onSubmit={handleLeadSubmit} />}
         {screen === SCREENS.GAME    && <GameScreen    onFinish={handleGameFinish} />}
-        {screen === SCREENS.RANKING && <RankingScreen currentName={leadData?.nome} onContinue={handleContinue} />}
+        {screen === SCREENS.RANKING && <RankingScreen currentName={leadData?.nome} currentScore={finalScore} onContinue={handleContinue} />}
         {screen === SCREENS.THANKS  && <ThankYouScreen onRestart={handleRestart} />}
       </div>
     </div>

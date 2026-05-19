@@ -17,8 +17,17 @@ export function saveLead(lead) {
 export function getTopRanking(n = 10) {
   return getLeads()
     .filter(l => l.score != null)
-    .sort((a, b) => a.score - b.score) // lower total time = better
+    .sort((a, b) => a.score - b.score)
     .slice(0, n);
+}
+
+// Returns 1-based position of a player in the full sorted ranking
+export function getPlayerRank(nome, score) {
+  const sorted = getLeads()
+    .filter(l => l.score != null)
+    .sort((a, b) => a.score - b.score);
+  const idx = sorted.findIndex(l => l.nome === nome && l.score === score);
+  return idx === -1 ? null : idx + 1;
 }
 
 export function exportCSV() {
